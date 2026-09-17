@@ -10,7 +10,7 @@ SoftEdgeKit.install()
 
 Zero dependencies. Swift Package Manager. iOS 15+ deployment target; the override only activates on iOS 27+.
 
-> **Private API:** SoftEdgeKit uses private UIKit style factories and process-wide method replacement. These APIs can change in any OS update, and their use can result in App Store rejection. Encoded selector names do not make the implementation App Store safe. Public `.soft` is the fallback when neither private factory is available.
+> **Disclaimer — private APIs and method swizzling:** SoftEdgeKit calls private UIKit style factories and swizzles UIKit methods to override scroll-edge styling process-wide. Private selector names are obfuscated, but this does **not** guarantee App Store approval or make private API usage compliant with [App Review Guideline 2.5.1](https://developer.apple.com/app-store/review/guidelines/#software-requirements), which requires public APIs. Apps using this library may be rejected. OS updates can break the behavior, and swizzling can conflict with other code modifying the same methods. Use at your own risk. Public `.soft` is the fallback when neither private factory is available.
 
 ## Installation
 
